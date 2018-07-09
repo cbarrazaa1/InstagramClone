@@ -7,16 +7,26 @@
 //
 
 #import "AppDelegate.h"
+#import "Parse.h"
 
+static NSString* APP_ID = @"cesarinstagramclone_APPIDSECRET";
+static NSString* MASTER_KEY = @"cesarinstagramclone_APPKEYSECRETTOO";
+static NSString* SERVER_URL = @"http://cesarinstagramclone.herokuapp.com/parse";
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Parse initialization
+    ParseClientConfiguration* configuration = [ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = APP_ID;
+        configuration.clientKey = MASTER_KEY;
+        configuration.server = SERVER_URL;
+    }];
+    [Parse initializeWithConfiguration:configuration];
+    
     return YES;
 }
 
