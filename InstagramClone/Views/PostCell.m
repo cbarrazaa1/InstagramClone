@@ -13,7 +13,7 @@
 // Outlet Definitions //
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
-
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 
 // Instance Properties //
 @property (strong, nonatomic) Post* post;
@@ -23,6 +23,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    // set rounded corners
+    self.profileImage.layer.cornerRadius = 16;
+    self.profileImage.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

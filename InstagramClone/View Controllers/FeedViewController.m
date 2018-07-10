@@ -29,8 +29,9 @@
     // set up tableview
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self.tableView setRowHeight:277];
-    
+    [self.tableView setRowHeight:380];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     // set up refresh control
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
