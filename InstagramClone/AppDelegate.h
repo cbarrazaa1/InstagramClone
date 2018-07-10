@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-
+// Shows an alert from any view controller
++ (void)showAlertWithTitle:(NSString*)title message:(NSString*)message sender:(UIViewController*)sender;
 @end
 

@@ -8,6 +8,7 @@
 
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 // Outlet Definitions
@@ -28,17 +29,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)showAlertWithTitle:(NSString*)title message:(NSString*)message {
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    
-    // create OK button
-    UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-    
-    // add OK button and show
-    [alert addAction:okAction];
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
 }
@@ -50,7 +40,8 @@
     // validate textboxes
     if([username length] <= 0 || [password length] <= 0)
     {
-        [self showAlertWithTitle:@"Login Error" message:@"Please enter username and password."];
+        [AppDelegate showAlertWithTitle:@"Login Error" message:@"Please enter username and password." sender:self];
+        return;
     }
     
     // attempt login
@@ -63,7 +54,7 @@
                 }
                 else
                 {
-                    [self showAlertWithTitle:@"Login Error" message:error.localizedDescription];
+                    [AppDelegate showAlertWithTitle:@"Login Error" message:error.localizedDescription sender:self];
                 }
             }
      ];
@@ -77,7 +68,8 @@
     // validate textboxes
     if([username length] <= 0 || [password length] <= 0)
     {
-        [self showAlertWithTitle:@"Register Error" message:@"Please enter username and password."];
+        [AppDelegate showAlertWithTitle:@"Register Error" message:@"Please enter username and password." sender:self];
+        return;
     }
     
     // set up user
@@ -94,7 +86,7 @@
                  }
                  else
                  {
-                     [self showAlertWithTitle:@"Register Error" message:error.localizedDescription];
+                     [AppDelegate showAlertWithTitle:@"Register Error" message:error.localizedDescription sender:self];
                  }
              }
      ];

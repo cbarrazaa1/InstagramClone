@@ -64,5 +64,15 @@ static NSString* SERVER_URL = @"http://cesarinstagramclone.herokuapp.com/parse";
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
++ (void)showAlertWithTitle:(NSString*)title message:(NSString*)message sender:(UIViewController*)sender {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    // create OK button
+    UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    
+    // add OK button and show
+    [alert addAction:okAction];
+    [sender presentViewController:alert animated:YES completion:nil];
+}
 
 @end
