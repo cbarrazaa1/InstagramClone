@@ -71,10 +71,35 @@ static UIImage* defaultImage;
     UIImagePickerController* picker = [UIImagePickerController new];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
-    // show the controller
-    [self presentViewController:picker animated:YES completion:nil];
+    // ask the user if they want to use camera or photo library
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Picture" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction* alertCamera = [UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction * _Nonnull action)
+                                                {
+                                                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                                    
+                                                    // show the controller
+                                                    [self presentViewController:picker animated:YES completion:nil];
+                                                }
+                                  ];
+    
+    UIAlertAction* alertGallery = [UIAlertAction actionWithTitle:@"Photo Gallery" style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction * _Nonnull action)
+                                                 {
+                                                     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                                     
+                                                     // show the controller
+                                                     [self presentViewController:picker animated:YES completion:nil];
+                                                 }
+                                   ];
+    UIAlertAction* alertCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    // add the actions and show
+    [alert addAction:alertCamera];
+    [alert addAction:alertGallery];
+    [alert addAction:alertCancel];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)shareClicked:(id)sender {
