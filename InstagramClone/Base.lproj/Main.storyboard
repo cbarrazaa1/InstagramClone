@@ -100,6 +100,40 @@
                     <view key="view" contentMode="scaleToFill" id="npK-nX-GaX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nnK-1n-Tbr">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="277" id="XQS-1h-8pm" customClass="PostCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="277"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XQS-1h-8pm" id="UTN-Sn-VeS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="276.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="5bN-VW-Kvq">
+                                                    <rect key="frame" x="15" y="11" width="345" height="225"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is the caption of the picture." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4J-Hh-10c">
+                                                    <rect key="frame" x="15" y="244" width="252" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="x4J-Hh-10c" id="6Dz-iX-5eT"/>
+                                            <outlet property="pictureImage" destination="5bN-VW-Kvq" id="nW6-Y6-fma"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Tg7-GR-av1"/>
                     </view>
@@ -110,10 +144,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="nnK-1n-Tbr" id="MRo-Lk-RVT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0FI-6S-xhr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2529" y="-577"/>
+            <point key="canvasLocation" x="2528.8000000000002" y="-577.06146926536735"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ubg-Oe-P6s">
@@ -150,18 +187,42 @@
                                     <outletCollection property="gestureRecognizers" destination="Lng-ye-b49" appends="YES" id="4N0-ea-2LI"/>
                                 </connections>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="This is the text for the caption..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ger-XU-CfL">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ger-XU-CfL">
                                 <rect key="frame" x="147" y="75" width="220" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MB7-JV-N9L">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vKY-Ao-jel">
+                                        <rect key="frame" x="169" y="259" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Uploading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sv6-i0-Sr0">
+                                        <rect key="frame" x="126" y="304" width="122" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="LuO-Pl-aW4"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Post" id="RKG-ok-dPK">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="SXF-VA-zfF">
+                            <connections>
+                                <action selector="cancelClicked:" destination="c68-k6-aN7" id="glI-bo-ZmN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="ecx-Be-g8b">
                             <connections>
                                 <action selector="shareClicked:" destination="c68-k6-aN7" id="6Ut-X0-YyJ"/>
@@ -169,8 +230,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="vKY-Ao-jel" id="0AM-3J-6HU"/>
+                        <outlet property="cancelButton" destination="SXF-VA-zfF" id="tKe-sv-Kje"/>
                         <outlet property="captionField" destination="ger-XU-CfL" id="CnW-H5-Bbt"/>
+                        <outlet property="loadingView" destination="MB7-JV-N9L" id="PQU-ez-7FL"/>
                         <outlet property="pictureImage" destination="8n2-HJ-JMe" id="O6U-5G-mGo"/>
+                        <outlet property="shareButton" destination="ecx-Be-g8b" id="E8a-21-Aba"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVf-L8-UFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,11 +287,11 @@
             </objects>
             <point key="canvasLocation" x="1772" y="911"/>
         </scene>
-        <!--Post-->
+        <!--New Post-->
         <scene sceneID="YR9-bR-uOD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ptC-T7-Rmg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" image="insta_camera_btn" id="loM-Li-ohh"/>
+                    <tabBarItem key="tabBarItem" title="New Post" image="insta_camera_btn" id="loM-Li-ohh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jDS-41-AV1">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

@@ -17,6 +17,12 @@ static UIImage* defaultImage;
 // Outlet Definitions //
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
 @property (weak, nonatomic) IBOutlet UITextView *captionField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @end
 
 @implementation NewPostViewController
@@ -34,8 +40,11 @@ static UIImage* defaultImage;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    // show keyboard
-    [self.captionField becomeFirstResponder];
+    // show keyboard if not loading
+    if(self.loadingView.hidden)
+    {
+        [self.captionField becomeFirstResponder];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +53,25 @@ static UIImage* defaultImage;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
+}
+
+- (void)beginLoading {
+    [self.activityIndicator startAnimating];
+    self.loadingView.hidden = NO;
+    [self.captionField resignFirstResponder];
+    
+    // disable buttons
+    self.shareButton.enabled = NO;
+    self.cancelButton.enabled = NO;
+}
+
+- (void)endLoading {
+    [self.loadingView setHidden:YES];
+    [self.activityIndicator stopAnimating];
+    
+    // enable buttons
+    self.shareButton.enabled = YES;
+    self.cancelButton.enabled = YES;
 }
 
 - (void)clearData {
@@ -115,15 +143,24 @@ static UIImage* defaultImage;
     UIImage* image = [self resizeImage:self.pictureImage.image withSize:CGSizeMake(1024, 768)];
     
     // send the post data
+    [self beginLoading];
     [Post createPostWithImage:image text:self.captionField.text
           completion:^(BOOL succeeded, NSError * _Nullable error)
           {
               [self clearData];
+              [self endLoading];
               [AppDelegate showAlertWithTitle:@"Success" message:@"Post created successfully." sender:self];
           }
      ];
 }
 
+- (IBAction)cancelClicked:(id)sender {
+    // hide keyboard
+    [self.captionField resignFirstResponder];
+    
+    // clear data
+    [self clearData];
+}
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage* original = info[UIImagePickerControllerOriginalImage];
