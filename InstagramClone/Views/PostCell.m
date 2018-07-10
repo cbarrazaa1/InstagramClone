@@ -13,7 +13,14 @@
 // Outlet Definitions //
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (weak, nonatomic) IBOutlet UIButton *profileButton;
+@property (weak, nonatomic) IBOutlet UILabel *topUsernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bottomUsernameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *replyButton;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet UILabel *likesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 // Instance Properties //
 @property (strong, nonatomic) Post* post;
@@ -25,8 +32,8 @@
     [super awakeFromNib];
     
     // set rounded corners
-    self.profileImage.layer.cornerRadius = 16;
-    self.profileImage.clipsToBounds = YES;
+    self.profileButton.layer.cornerRadius = 16;
+    self.profileButton.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -52,10 +59,34 @@
      ];
     
     self.captionLabel.text = self.post.text;
+    self.topUsernameLabel.text = self.post.user.username;
+    self.bottomUsernameLabel.text = self.post.user.username;
+    
+    // format data
+    NSDateFormatter* formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"MMM d, yyyy";
+    self.dateLabel.text = [formatter stringFromDate:self.post.createdAt];
 }
 
 - (void)setPost:(Post*)post {
     _post = post;
     [self updateUI];
 }
+
+- (IBAction)likeClicked:(id)sender {
+    NSLog(@"Like");
+}
+
+- (IBAction)replyClicked:(id)sender {
+    NSLog(@"Reply");
+}
+
+- (IBAction)saveClicked:(id)sender {
+    NSLog(@"Save");
+}
+
+- (IBAction)profileClicked:(id)sender {
+    NSLog(@"Profile");
+}
+
 @end

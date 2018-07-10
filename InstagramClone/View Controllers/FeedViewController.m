@@ -29,7 +29,7 @@
     // set up tableview
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self.tableView setRowHeight:380];
+    [self.tableView setRowHeight:396];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     // set up refresh control
@@ -55,6 +55,7 @@
     // set up query
     query.limit = 20;
     [query orderByDescending:@"createdAt"];
+    [query includeKey:@"user"];
     
     // send request
     [query findObjectsInBackgroundWithBlock:

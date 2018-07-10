@@ -42,4 +42,5 @@
     // if we get here, image is fine
     return [PFFile fileWithName:@"image.png" data:imageData];
 }
+
 @end
