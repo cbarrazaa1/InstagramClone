@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
+@property (weak, nonatomic) IBOutlet UIButton *followButton;
 
 // Instance Properties //
 @property (strong, nonatomic) User* user;
@@ -33,16 +35,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUser:[User currentUser]];
     
     // set circle borders
     self.profileImage.layer.cornerRadius = 48;
     self.profileImage.clipsToBounds = YES;
     
-    // set button border
+    // set buttons border
     self.editProfileButton.layer.cornerRadius = 4;
     self.editProfileButton.layer.borderWidth = 1.0;
     self.editProfileButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.messageButton.layer.cornerRadius = 4;
+    self.messageButton.layer.borderWidth = 1.0;
+    self.messageButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     // set up collectionview
     self.collectionView.dataSource = self;
@@ -54,11 +58,11 @@
     
     CGFloat size = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (picturesPerLine - 1)) / picturesPerLine;
     layout.itemSize = CGSizeMake(size, size);
-    
-    // fetch data
-    [self fetchPosts];
 }
-
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self updateUI];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
@@ -69,9 +73,22 @@
     [Helper setImageFromPFFile:self.user.profilePicture forImageView:self.profileImage];
     self.displayNameLabel.text = self.user.displayName;
     self.bioLabel.text = self.user.bioDesc;
-    self.postsLabel.text = [NSString stringWithFormat:@"%i", self.user.postCount];
     self.followersLabel.text = [NSString stringWithFormat:@"%i", self.user.followerCount];
     self.followingLabel.text = [NSString stringWithFormat:@"%i", self.user.followingCount];
+    
+    // change buttons visibility depending on users
+    if([self.user.username isEqualToString:[User currentUser].username])
+    {
+        self.editProfileButton.hidden = NO;
+        self.messageButton.hidden = YES;
+        self.followButton.hidden = YES;
+    }
+    else
+    {
+        self.editProfileButton.hidden = YES;
+        self.messageButton.hidden = NO;
+        self.followButton.hidden = NO;
+    }
 }
 
 - (void)fetchPosts {
@@ -90,6 +107,7 @@
          if(error == nil)
          {
              self.posts = (NSMutableArray*)objects;
+             self.postsLabel.text = [NSString stringWithFormat:@"%lu", self.posts.count];
          }
          else
          {
@@ -108,14 +126,16 @@
         DetailsViewController* viewController = (DetailsViewController*)[segue destinationViewController];
         PictureCell* cell = (PictureCell*)sender;
         NSIndexPath* indexPath = [self.collectionView indexPathForCell:cell];
-        Post* post = self.posts[indexPath.item];
         [viewController setPost:self.posts[indexPath.item]];
     }
 }
 
 - (void)setUser:(User*)user {
-    _user = user;
-    [self updateUI];
+    if(_user == nil)
+    {
+        _user = user;
+        [self fetchPosts];
+    }
 }
 
 - (IBAction)editProfileClicked:(id)sender {

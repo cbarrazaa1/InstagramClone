@@ -13,7 +13,6 @@
 @property (strong, nonatomic, nullable) PFFile* profilePicture;
 @property (strong, nonatomic, nonnull) NSString* displayName;
 @property (strong, nonatomic, nullable) NSString* bioDesc;
-@property (nonatomic) int postCount;
 @property (nonatomic) int followerCount;
 @property (nonatomic) int followingCount;
 

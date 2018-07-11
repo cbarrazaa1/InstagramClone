@@ -8,11 +8,12 @@
 
 #import <Parse/Parse.h>
 #import "FeedViewController.h"
+#import "ProfileViewController.h"
 #import "AppDelegate.h"
 #import "Post.h"
 #import "PostCell.h"
 
-@interface FeedViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface FeedViewController () <UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate>
 // Outlet Definitions //
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -37,6 +38,8 @@
     [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     
+    self.tabBarController.delegate = self;
+    
     // load posts
     [self fetchPosts];
 }
@@ -46,7 +49,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    if([segue.identifier isEqualToString:@"profileSegue"])
+    {
+        ProfileViewController* viewController = (ProfileViewController*)[segue destinationViewController];
+        PostCell* cell = (PostCell*)[[sender superview] superview];
+        [viewController setUser:[[User alloc] initWithPFUser:cell.post.user]];
+    }
 }
 
 - (void)fetchPosts {
@@ -101,6 +109,15 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    UIViewController* actualController = ((UINavigationController*)viewController).topViewController;
+    if([actualController isKindOfClass:[ProfileViewController class]])
+    {
+        ProfileViewController* controller = (ProfileViewController*)actualController;
+        [controller setUser:[User currentUser]];
+    }
 }
 
 @end

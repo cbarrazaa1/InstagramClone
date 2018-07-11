@@ -10,6 +10,9 @@
 #import "Post.h"
 
 @interface PostCell : UITableViewCell
+// Instance Properties //
+@property (strong, nonatomic) Post* post;
+
 // Instance Methods //
 - (void)setPost:(Post*)post;
 @end

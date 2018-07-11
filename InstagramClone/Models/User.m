@@ -10,7 +10,7 @@
 #import "Helper.h"
 
 @implementation User
-@dynamic profilePicture, displayName, bioDesc, postCount, followerCount, followingCount;
+@dynamic profilePicture, displayName, bioDesc, followerCount, followingCount;
 
 - (instancetype)initWithPFUser:(PFUser*)user {
     return (User*)user;
@@ -21,7 +21,6 @@
     user.profilePicture = [Helper getPFFileFromImage:placeholderImage];
     user.displayName = newUser.username;
     user.bioDesc = @"This is your bio!";
-    user.postCount = 0;
     user.followerCount = 0;
     user.followingCount = 0;
     
