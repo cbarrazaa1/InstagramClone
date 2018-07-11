@@ -10,17 +10,17 @@
 
 @interface User : PFUser
 // Instance Properties //
-@property (strong, nonatomic) PFFile* profilePicture;
-@property (strong, nonatomic) NSString* displayName;
-@property (strong, nonatomic) NSString* bioDesc;
+@property (strong, nonatomic, nullable) PFFile* profilePicture;
+@property (strong, nonatomic, nonnull) NSString* displayName;
+@property (strong, nonatomic, nullable) NSString* bioDesc;
 @property (nonatomic) int postCount;
 @property (nonatomic) int followerCount;
 @property (nonatomic) int followingCount;
 
 // Constructors //
-- (instancetype)initWithPFUser:(PFUser*)user;
+- (nonnull instancetype)initWithPFUser:(nonnull PFUser*)user;
 
 // Static Methods //
-+ (User*)defaultUserWithPFUser:(PFUser*)newUser;
-+ (User*)currentUser;
++ (nonnull User*)defaultUserWithPFUser:(nonnull PFUser*)newUser;
++ (nonnull User*)currentUser;
 @end

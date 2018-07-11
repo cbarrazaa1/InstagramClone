@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PictureCell : UICollectionViewCell
-// Instance Methods //
-- (void)setPictureWithImage:(UIImage*)image;
+// Outlet Definitions //
+@property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
 @end

@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "Post.h"
 #import "PictureCell.h"
+#import "Helper.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 // Outlet Definitions //
@@ -63,23 +64,8 @@
 }
 
 - (void)updateUI {
-    // convert PFFile to image
-    [self.user.profilePicture getDataInBackgroundWithBlock:
-     ^(NSData* _Nullable data, NSError * _Nullable error)
-     {
-         if(error == nil)
-         {
-             [self.profileImage setImage:[UIImage imageWithData:data]];
-         }
-         else
-         {
-             NSLog(@"Failed to convert PFFile to UIImage.");
-         }
-     }
-     ];
-    
-    // set the other settings
     self.navBar.title = self.user.username;
+    [Helper setImageFromPFFile:self.user.profilePicture forImageView:self.profileImage];
     self.displayNameLabel.text = self.user.displayName;
     self.bioLabel.text = self.user.bioDesc;
     self.postsLabel.text = [NSString stringWithFormat:@"%i", self.user.postCount];
@@ -134,12 +120,7 @@
     
     if(post != nil)
     {
-        [post.image getDataInBackgroundWithBlock:
-                    ^(NSData * _Nullable data, NSError * _Nullable error)
-                    {
-                        [cell setPictureWithImage:[UIImage imageWithData:data]];
-                    }
-        ];
+        [Helper setImageFromPFFile:post.image forImageView:cell.pictureImage];
     }
     
     return cell;

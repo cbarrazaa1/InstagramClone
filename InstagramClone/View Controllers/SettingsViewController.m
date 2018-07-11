@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "Helper.h"
 
 @interface SettingsViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 // Outlet Definitions //
@@ -35,20 +36,7 @@
 }
 
 - (void)updateUI {
-    [self.user.profilePicture getDataInBackgroundWithBlock:
-                              ^(NSData * _Nullable data, NSError * _Nullable error)
-                              {
-                                  if(error == nil)
-                                  {
-                                      [self.profilePicture setImage:[UIImage imageWithData:data]];
-                                  }
-                                  else
-                                  {
-                                      NSLog(@"Error trying to get image data from PFFile.");
-                                  }
-                              }
-     ];
-    
+    [Helper setImageFromPFFile:self.user.profilePicture forImageView:self.profilePicture];
     self.nameField.text = self.user.displayName;
     self.bioField.text = self.user.bioDesc;
 }
@@ -65,10 +53,10 @@
     // update the user
     [User currentUser].displayName = self.nameField.text;
     [User currentUser].bioDesc = self.bioField.text;
-    [User currentUser].profilePicture = [PFFile fileWithData:UIImagePNGRepresentation(self.profilePicture.image)];
     
     // get the image and resize
-    [User currentUser].profilePicture = [PFFile fileWithData:UIImagePNGRepresentation([self resizeImage:self.profilePicture.image withSize:CGSizeMake(1024, 768)])];
+    UIImage* resizedImage = [Helper resizeImage:self.profilePicture.image withSize:CGSizeMake(1024, 768)];
+    [User currentUser].profilePicture = [Helper getPFFileFromImage:resizedImage];
     
     // update db
     [[User currentUser] saveInBackgroundWithBlock:
@@ -119,27 +107,11 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-// resizeImage: method from https://hackmd.io/s/B1UKigxm7
-- (UIImage*)resizeImage:(UIImage*)image withSize:(CGSize)size {
-    UIImageView* resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    
-    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
-    resizeImageView.image = image;
-    
-    UIGraphicsBeginImageContext(size);
-    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    UIImage* original = info[UIImagePickerControllerOriginalImage];
-    //UIImage* edited = info[UIImagePickerControllerEditedImage];
+    UIImage* image = info[UIImagePickerControllerEditedImage];
     
     // set the image
-    [self.profilePicture setImage:original];
+    [self.profilePicture setImage:image];
     
     // dismiss
     [self dismissViewControllerAnimated:YES completion:nil];

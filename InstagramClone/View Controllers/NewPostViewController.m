@@ -9,6 +9,7 @@
 #import "NewPostViewController.h"
 #import "AppDelegate.h"
 #import "Post.h"
+#import "Helper.h"
 
 // Default image
 static UIImage* defaultImage;
@@ -19,10 +20,8 @@ static UIImage* defaultImage;
 @property (weak, nonatomic) IBOutlet UITextView *captionField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
-
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
 @end
 
 @implementation NewPostViewController
@@ -79,21 +78,6 @@ static UIImage* defaultImage;
     [self.pictureImage setImage:defaultImage];
 }
 
-// resizeImage: method from https://hackmd.io/s/B1UKigxm7
-- (UIImage*)resizeImage:(UIImage*)image withSize:(CGSize)size {
-    UIImageView* resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    
-    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
-    resizeImageView.image = image;
-    
-    UIGraphicsBeginImageContext(size);
-    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
-
 - (IBAction)imageClick:(id)sender {
     // initialize image picker
     UIImagePickerController* picker = [UIImagePickerController new];
@@ -140,7 +124,7 @@ static UIImage* defaultImage;
     }
     
     // get the image and resize
-    UIImage* image = [self resizeImage:self.pictureImage.image withSize:CGSizeMake(1024, 768)];
+    UIImage* image = [Helper resizeImage:self.pictureImage.image withSize:CGSizeMake(1024, 768)];
     
     // send the post data
     [self beginLoading];
@@ -163,11 +147,10 @@ static UIImage* defaultImage;
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    UIImage* original = info[UIImagePickerControllerOriginalImage];
-    //UIImage* edited = info[UIImagePickerControllerEditedImage];
+    UIImage* picture = info[UIImagePickerControllerEditedImage];
     
     // set the image
-    [self.pictureImage setImage:original];
+    [self.pictureImage setImage:picture];
     
     // dismiss
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -7,6 +7,7 @@
 //
 
 #import "Post.h"
+#import "Helper.h"
 
 @implementation Post
 @dynamic postID, user, userID, text, image;
@@ -20,27 +21,10 @@
     newPost.user = PFUser.currentUser;
     newPost.userID = PFUser.currentUser.objectId;
     newPost.text = text;
-    newPost.image = [self getPFFileFromImage:image];
+    newPost.image = [Helper getPFFileFromImage:image];
     newPost.postID = newPost.objectId;
     
     // save in db
     [newPost saveInBackgroundWithBlock:completion];
 }
-
-+ (PFFile*)getPFFileFromImage: (UIImage*)image {
-    if(image == nil)
-    {
-        return nil;
-    }
-    
-    NSData* imageData = UIImagePNGRepresentation(image);
-    if (imageData == nil)
-    {
-        return nil;
-    }
-    
-    // if we get here, image is fine
-    return [PFFile fileWithName:@"image.png" data:imageData];
-}
-
 @end

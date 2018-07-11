@@ -9,13 +9,10 @@
 #import "PictureCell.h"
 
 @interface PictureCell ()
-// Outlet Definitions //
-@property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
+
 
 @end
 
 @implementation PictureCell
-- (void)setPictureWithImage:(UIImage*)image {
-    [self.pictureImage setImage:image];
-}
+
 @end

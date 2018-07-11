@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 #import "PostCell.h"
 #import "User.h"
+#include "Helper.h"
 
 @interface PostCell ()
 // Outlet Definitions //
@@ -44,42 +45,14 @@
 }
 
 - (void)updateUI {
-    PFFile* image = self.post.image;
+    User* user = [[User alloc] initWithPFUser:self.post.user];
     
-    // convert PFFile to image
-    [image getDataInBackgroundWithBlock:
-           ^(NSData* _Nullable data, NSError * _Nullable error)
-           {
-               if(error == nil)
-               {
-                   [self.pictureImage setImage:[UIImage imageWithData:data]];
-               }
-               else
-               {
-                   NSLog(@"Failed to convert PFFile to UIImage.");
-               }
-           }
-     ];
-    
+    // set info
+    [Helper setImageFromPFFile:user.profilePicture forButton:self.profileButton];
+    [Helper setImageFromPFFile:self.post.image forImageView:self.pictureImage];
     self.captionLabel.text = self.post.text;
     self.topUsernameLabel.text = self.post.user.username;
     self.bottomUsernameLabel.text = self.post.user.username;
-    
-    // get the user image
-    User* user = [[User alloc] initWithPFUser:self.post.user];
-    [user.profilePicture getDataInBackgroundWithBlock:
-                         ^(NSData * _Nullable data, NSError * _Nullable error)
-                         {
-                             if(error == nil)
-                             {
-                                 [self.profileButton setImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
-                             }
-                             else
-                             {
-                                 NSLog(@"Error converting PFFile to image.");
-                             }
-                         }
-     ];
     
     // format data
     NSDateFormatter* formatter = [NSDateFormatter new];
