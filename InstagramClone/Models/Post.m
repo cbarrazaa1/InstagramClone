@@ -9,7 +9,7 @@
 #import "Post.h"
 
 @implementation Post
-@dynamic postID, user, text, image;
+@dynamic postID, user, userID, text, image;
 
 + (nonnull NSString*)parseClassName {
     return @"Post";
@@ -18,10 +18,10 @@
 + (void)createPostWithImage:(UIImage*)image text:(NSString*)text completion:(nullable PFBooleanResultBlock)completion {
     Post* newPost = [Post new];
     newPost.user = PFUser.currentUser;
+    newPost.userID = PFUser.currentUser.objectId;
     newPost.text = text;
     newPost.image = [self getPFFileFromImage:image];
     newPost.postID = newPost.objectId;
-    NSLog(@"%@", newPost.objectId);
     
     // save in db
     [newPost saveInBackgroundWithBlock:completion];

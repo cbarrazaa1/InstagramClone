@@ -8,6 +8,7 @@
 
 #import <Parse/Parse.h>
 #import "PostCell.h"
+#import "User.h"
 
 @interface PostCell ()
 // Outlet Definitions //
@@ -34,6 +35,8 @@
     // set rounded corners
     self.profileButton.layer.cornerRadius = 16;
     self.profileButton.clipsToBounds = YES;
+    self.profileButton.layer.borderWidth = 0.5;
+    self.profileButton.layer.borderColor = [UIColor brownColor].CGColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -61,6 +64,22 @@
     self.captionLabel.text = self.post.text;
     self.topUsernameLabel.text = self.post.user.username;
     self.bottomUsernameLabel.text = self.post.user.username;
+    
+    // get the user image
+    User* user = [[User alloc] initWithPFUser:self.post.user];
+    [user.profilePicture getDataInBackgroundWithBlock:
+                         ^(NSData * _Nullable data, NSError * _Nullable error)
+                         {
+                             if(error == nil)
+                             {
+                                 [self.profileButton setImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
+                             }
+                             else
+                             {
+                                 NSLog(@"Error converting PFFile to image.");
+                             }
+                         }
+     ];
     
     // format data
     NSDateFormatter* formatter = [NSDateFormatter new];

@@ -1,5 +1,5 @@
 //
-//  PictureCell.h
+//  SettingsViewController.h
 //  InstagramClone
 //
 //  Created by César Francisco Barraza on 7/10/18.
@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface PictureCell : UICollectionViewCell
-// Instance Methods //
-- (void)setPictureWithImage:(UIImage*)image;
+@interface SettingsViewController : UIViewController
+
 @end

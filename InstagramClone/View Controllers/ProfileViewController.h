@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface ProfileViewController : UIViewController
-
+// Instance Methods //
+- (void)setUser:(User*)user;
 @end

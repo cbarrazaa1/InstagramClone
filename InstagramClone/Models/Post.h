@@ -10,11 +10,12 @@
 
 @interface Post : PFObject<PFSubclassing>
 // Instance Properties //
-@property (strong, nonatomic) NSString* postID;
-@property (strong, nonatomic) PFUser* user;
-@property (strong, nonatomic) NSString* text;
-@property (strong, nonatomic) PFFile* image;
+@property (strong, nonatomic, nonnull) NSString* postID;
+@property (strong, nonatomic, nonnull) PFUser* user;
+@property (strong, nonatomic, nonnull) NSString* userID;
+@property (strong, nonatomic, nullable) NSString* text;
+@property (strong, nonatomic, nullable) PFFile* image;
 
 // Static Methods //
-+ (void)createPostWithImage:(UIImage*)image text:(NSString*)text completion:(nullable PFBooleanResultBlock)completion;
++ (void)createPostWithImage:(nullable UIImage*)image text:(nullable NSString*)text completion:(nullable PFBooleanResultBlock)completion;
 @end

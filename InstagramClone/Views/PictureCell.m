@@ -8,6 +8,14 @@
 
 #import "PictureCell.h"
 
-@implementation PictureCell
+@interface PictureCell ()
+// Outlet Definitions //
+@property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
 
+@end
+
+@implementation PictureCell
+- (void)setPictureWithImage:(UIImage*)image {
+    [self.pictureImage setImage:image];
+}
 @end

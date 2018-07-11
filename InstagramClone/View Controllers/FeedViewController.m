@@ -29,7 +29,7 @@
     // set up tableview
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self.tableView setRowHeight:396];
+    [self.tableView setRowHeight:UITableViewAutomaticDimension];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     // set up refresh control

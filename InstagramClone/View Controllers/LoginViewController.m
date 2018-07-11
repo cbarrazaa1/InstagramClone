@@ -8,7 +8,9 @@
 
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
+#import "NewPostViewController.h"
 #import "AppDelegate.h"
+#import "User.h"
 
 @interface LoginViewController ()
 // Outlet Definitions
@@ -82,7 +84,20 @@
              {
                  if(succeeded)
                  {
-                     [self performSegueWithIdentifier:@"loginSegue" sender:self];
+                     // create the default settings for user
+                     User* user = [User defaultUserWithPFUser:newUser];
+                     
+                     // save the info
+                     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                         if(succeeded)
+                         {
+                             [self performSegueWithIdentifier:@"loginSegue" sender:self];
+                         }
+                         else
+                         {
+                             NSLog(@"Error creating new user data.");
+                         }
+                     }];
                  }
                  else
                  {
