@@ -11,6 +11,7 @@
 #import "NewPostViewController.h"
 #import "AppDelegate.h"
 #import "User.h"
+#import "Helper.h"
 
 @interface LoginViewController ()
 // Outlet Definitions
@@ -22,6 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // initialize default image
+    if(placeholderImage == nil)
+    {
+        placeholderImage = [UIImage imageNamed:@"image_placeholder"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

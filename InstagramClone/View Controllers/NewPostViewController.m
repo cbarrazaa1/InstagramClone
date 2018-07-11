@@ -11,9 +11,6 @@
 #import "Post.h"
 #import "Helper.h"
 
-// Default image
-static UIImage* defaultImage;
-
 @interface NewPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 // Outlet Definitions //
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
@@ -28,12 +25,6 @@ static UIImage* defaultImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // initialize default image
-    if(defaultImage == nil)
-    {
-        defaultImage = [UIImage imageNamed:@"image_placeholder"];
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -75,7 +66,7 @@ static UIImage* defaultImage;
 
 - (void)clearData {
     self.captionField.text = @"";
-    [self.pictureImage setImage:defaultImage];
+    [self.pictureImage setImage:placeholderImage];
 }
 
 - (IBAction)imageClick:(id)sender {

@@ -8,7 +8,10 @@
 
 #import "Helper.h"
 
+UIImage* placeholderImage = nil;
+
 @implementation Helper
+
 + (void)setImageFromPFFile:(PFFile*)file forImageView:(UIImageView*)imageView {
     [file getDataInBackgroundWithBlock:
      ^(NSData* _Nullable data, NSError * _Nullable error)

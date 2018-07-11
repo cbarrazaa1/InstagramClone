@@ -7,6 +7,7 @@
 //
 
 #import "User.h"
+#import "Helper.h"
 
 @implementation User
 @dynamic profilePicture, displayName, bioDesc, postCount, followerCount, followingCount;
@@ -17,7 +18,7 @@
 
 + (User*)defaultUserWithPFUser:(PFUser*)newUser {
     User* user = [[User alloc] initWithPFUser:newUser];
-    user.profilePicture = [PFFile fileWithData:UIImagePNGRepresentation([UIImage imageNamed:@"image_placeholder"])];
+    user.profilePicture = [Helper getPFFileFromImage:placeholderImage];
     user.displayName = newUser.username;
     user.bioDesc = @"This is your bio!";
     user.postCount = 0;

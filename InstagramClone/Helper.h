@@ -10,10 +10,9 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-/*
-    Helper
-    Set of global helper variables and methods.
-*/
+// Placeholder image used all around the app
+extern UIImage* placeholderImage;
+
 @interface Helper : NSObject
 + (void)setImageFromPFFile:(PFFile*)file forImageView:(UIImageView*)imageView;
 + (void)setImageFromPFFile:(PFFile*)file forButton:(UIButton*)button;
