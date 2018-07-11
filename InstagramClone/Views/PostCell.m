@@ -37,7 +37,7 @@
     self.profileButton.layer.cornerRadius = 16;
     self.profileButton.clipsToBounds = YES;
     self.profileButton.layer.borderWidth = 0.5;
-    self.profileButton.layer.borderColor = [UIColor brownColor].CGColor;
+    self.profileButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

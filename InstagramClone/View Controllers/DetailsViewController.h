@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
 
 @interface DetailsViewController : UIViewController
-
+// Instance Methods //
+- (void)setPost:(Post*)post;
 @end

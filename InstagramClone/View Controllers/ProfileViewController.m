@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "DetailsViewController.h"
 #import "Post.h"
 #import "PictureCell.h"
 #import "Helper.h"
@@ -102,7 +103,14 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    if([segue.identifier isEqualToString:@"detailsSegue"])
+    {
+        DetailsViewController* viewController = (DetailsViewController*)[segue destinationViewController];
+        PictureCell* cell = (PictureCell*)sender;
+        NSIndexPath* indexPath = [self.collectionView indexPathForCell:cell];
+        Post* post = self.posts[indexPath.item];
+        [viewController setPost:self.posts[indexPath.item]];
+    }
 }
 
 - (void)setUser:(User*)user {
