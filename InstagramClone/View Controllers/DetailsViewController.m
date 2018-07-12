@@ -65,7 +65,8 @@
     {
         [self.likeButton setImage:[UIImage imageNamed:@"instaheart"] forState:UIControlStateNormal];
     }
-        self.likeLabel.text = [NSString stringWithFormat:@"%i likes", self.post.likeCount];
+    NSString* likesString = (self.post.likeCount == 1) ? @"like" : @"likes";
+    self.likeLabel.text = [NSString stringWithFormat:@"%i %@", self.post.likeCount, likesString];
     
     // format data
     NSDateFormatter* formatter = [NSDateFormatter new];
