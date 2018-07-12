@@ -15,6 +15,12 @@
 @property (strong, nonatomic, nonnull) NSString* userID;
 @property (strong, nonatomic, nullable) NSString* text;
 @property (strong, nonatomic, nullable) PFFile* image;
+@property (strong, nonatomic, nullable) NSMutableArray<NSString*>* likedBy;
+@property (nonatomic) int likeCount;
+@property (nonatomic) BOOL liked;
+
+// Instance Methods //
+- (void)likeWithUserID:(nonnull NSString*)userID;
 
 // Static Methods //
 + (void)createPostWithImage:(nullable UIImage*)image text:(nullable NSString*)text completion:(nullable PFBooleanResultBlock)completion;

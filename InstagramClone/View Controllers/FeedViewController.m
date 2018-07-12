@@ -71,6 +71,11 @@
            {
                if(error == nil)
                {
+                   // set liked or not
+                   for(Post* post in objects)
+                   {
+                       post.liked = [post.likedBy containsObject:[User currentUser].objectId];
+                   }
                    self.posts = (NSMutableArray*)objects;
                }
                else

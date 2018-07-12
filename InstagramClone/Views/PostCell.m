@@ -50,6 +50,16 @@
     self.captionLabel.text = self.post.text;
     self.topUsernameLabel.text = self.post.user.username;
     
+    // set like button
+    if(self.post.liked)
+    {
+        [self.likeButton setImage:[UIImage imageNamed:@"instaheartred"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.likeButton setImage:[UIImage imageNamed:@"instaheart"] forState:UIControlStateNormal];
+    }
+    self.likesLabel.text = [NSString stringWithFormat:@"%i likes", self.post.likeCount];
     // format data
     NSDateFormatter* formatter = [NSDateFormatter new];
     formatter.dateFormat = @"MMM d, yyyy";
@@ -62,7 +72,25 @@
 }
 
 - (IBAction)likeClicked:(id)sender {
-    NSLog(@"Like");
+    // animate
+    [UIView animateWithDuration:0.1
+            animations:^
+            {
+                self.likeButton.transform = CGAffineTransformMakeScale(1.3, 1.3);
+            }
+            completion:^(BOOL finished)
+            {
+                [UIView animateWithDuration:0.1 animations:^{
+                    self.likeButton.transform = CGAffineTransformIdentity;
+                }];
+            }
+     ];
+    
+    // set network call
+    [self.post likeWithUserID:[User currentUser].objectId];
+    
+    // update UI
+    [self updateUI];
 }
 
 - (IBAction)replyClicked:(id)sender {
