@@ -282,7 +282,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="mNc-oD-rCL">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="mNc-oD-rCL">
                                 <rect key="frame" x="139" y="81" width="96" height="96"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -425,6 +425,7 @@
                         <outlet property="bioField" destination="aNd-nG-QT0" id="vTE-Lf-JPb"/>
                         <outlet property="nameField" destination="5Se-Im-Ojs" id="7cu-BN-Qps"/>
                         <outlet property="profilePicture" destination="mNc-oD-rCL" id="bke-MC-LC4"/>
+                        <segue destination="1G2-nE-ENd" kind="presentation" identifier="cameraSegue" id="io9-Jh-zWX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQz-BQ-jVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -954,7 +955,7 @@
                                 <action selector="cancelClicked:" destination="ktY-LQ-stT" id="qr2-Ig-kVM"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="xnZ-jg-k20">
+                        <barButtonItem key="rightBarButtonItem" title="Use" id="xnZ-jg-k20">
                             <connections>
                                 <action selector="shareClicked:" destination="ktY-LQ-stT" id="cK9-HC-dq6"/>
                             </connections>
@@ -1024,6 +1025,7 @@
         <image name="user-plus" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="io9-Jh-zWX"/>
         <segue reference="q4N-kM-29I"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,9 +7,10 @@
 //
 
 #import "SettingsViewController.h"
+#import "CameraViewController.h"
 #import "Helper.h"
 
-@interface SettingsViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface SettingsViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CameraViewControllerDelegate>
 // Outlet Definitions //
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -46,7 +47,9 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    UINavigationController* navController = (UINavigationController*)[segue destinationViewController];
+    CameraViewController* viewController = (CameraViewController*)navController.topViewController;
+    viewController.delegate = self;
 }
 
 - (IBAction)doneClicked:(id)sender {
@@ -82,10 +85,8 @@
     UIAlertAction* alertCamera = [UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault
                                                         handler:^(UIAlertAction * _Nonnull action)
                                   {
-                                      picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                                      
                                       // show the controller
-                                      [self presentViewController:picker animated:YES completion:nil];
+                                      [self performSegueWithIdentifier:@"cameraSegue" sender:self];
                                   }
                                   ];
     
@@ -117,4 +118,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)didTakePicture:(UIImage*)picture {
+    [self.profilePicture setImage:picture];
+}
 @end
