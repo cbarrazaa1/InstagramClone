@@ -7,11 +7,12 @@
 //
 
 #import "NewPostViewController.h"
+#import "CameraViewController.h"
 #import "AppDelegate.h"
 #import "Post.h"
 #import "Helper.h"
 
-@interface NewPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface NewPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CameraViewControllerDelegate>
 // Outlet Definitions //
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
 @property (weak, nonatomic) IBOutlet UITextView *captionField;
@@ -42,7 +43,9 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    UINavigationController* navController = (UINavigationController*)[segue destinationViewController];
+    CameraViewController* viewController = (CameraViewController*)navController.topViewController;
+    viewController.delegate = self;
 }
 
 - (void)beginLoading {
@@ -66,7 +69,7 @@
 
 - (void)clearData {
     self.captionField.text = @"";
-    [self.pictureImage setImage:placeholderImage];
+    [self.pictureImage setImage:[Helper placeholderImage]];
 }
 
 - (IBAction)imageClick:(id)sender {
@@ -80,10 +83,8 @@
     UIAlertAction* alertCamera = [UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction * _Nonnull action)
                                                 {
-                                                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                                                    
                                                     // show the controller
-                                                    [self presentViewController:picker animated:YES completion:nil];
+                                                    [self performSegueWithIdentifier:@"cameraSegue" sender:self];
                                                 }
                                   ];
     
@@ -145,5 +146,9 @@
     
     // dismiss
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didTakePicture:(UIImage*)picture {
+    [self.pictureImage setImage:picture];
 }
 @end

@@ -7,10 +7,21 @@
 //
 
 #import "Helper.h"
+@interface Helper ()
 
-UIImage* placeholderImage = nil;
+@end
 
+static UIImage* placeholder;
 @implementation Helper
+
++ (UIImage*)placeholderImage {
+    if(placeholder == nil)
+    {
+        placeholder = [UIImage imageNamed:@"image_placeholder"];
+    }
+    
+    return placeholder;
+}
 
 + (void)setImageFromPFFile:(PFFile*)file forImageView:(UIImageView*)imageView {
     [file getDataInBackgroundWithBlock:

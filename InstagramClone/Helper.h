@@ -10,10 +10,9 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-// Placeholder image used all around the app
-extern UIImage* placeholderImage;
-
 @interface Helper : NSObject
++ (UIImage*)placeholderImage;
+
 + (void)setImageFromPFFile:(PFFile*)file forImageView:(UIImageView*)imageView;
 + (void)setImageFromPFFile:(PFFile*)file forButton:(UIButton*)button;
 + (UIImage*)resizeImage:(UIImage*)image withSize:(CGSize)size;

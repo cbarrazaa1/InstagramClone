@@ -18,7 +18,7 @@
 
 + (User*)defaultUserWithPFUser:(PFUser*)newUser {
     User* user = [[User alloc] initWithPFUser:newUser];
-    user.profilePicture = [Helper getPFFileFromImage:placeholderImage];
+    user.profilePicture = [Helper getPFFileFromImage:[Helper placeholderImage]];
     user.displayName = newUser.username;
     user.bioDesc = @"This is your bio!";
     user.followerCount = 0;

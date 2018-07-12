@@ -677,12 +677,13 @@
                         <outlet property="loadingView" destination="MB7-JV-N9L" id="PQU-ez-7FL"/>
                         <outlet property="pictureImage" destination="8n2-HJ-JMe" id="O6U-5G-mGo"/>
                         <outlet property="shareButton" destination="ecx-Be-g8b" id="E8a-21-Aba"/>
+                        <segue destination="1G2-nE-ENd" kind="presentation" identifier="cameraSegue" id="GQS-h9-BRk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVf-L8-UFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Lng-ye-b49">
                     <connections>
-                        <action selector="imageClick:" destination="c68-k6-aN7" id="QcR-v3-r4m"/>
+                        <action selector="imageClick:" destination="c68-k6-aN7" id="26H-E5-sH8"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -898,6 +899,81 @@
             </objects>
             <point key="canvasLocation" x="1772" y="134"/>
         </scene>
+        <!--Photo-->
+        <scene sceneID="i7Y-FA-Ez4">
+            <objects>
+                <viewController id="ktY-LQ-stT" customClass="CameraViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8hM-yg-I5k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdD-GM-bLe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrj-nc-RmM">
+                                <rect key="frame" x="147" y="490" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePictureClicked:" destination="ktY-LQ-stT" eventType="touchUpInside" id="RxL-qQ-k0y"/>
+                                    <action selector="takePictureDown:" destination="ktY-LQ-stT" eventType="touchDown" id="3Yy-36-Izz"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B57-Tw-n0I">
+                                <rect key="frame" x="16" y="453" width="343" height="194"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFx-MS-Vvf">
+                                        <rect key="frame" x="74" y="0.0" width="194" height="194"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I33-aB-5dy">
+                                <rect key="frame" x="12" y="402" width="26" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="loop2"/>
+                                <connections>
+                                    <action selector="changeClicked:" destination="ktY-LQ-stT" eventType="touchUpInside" id="wF1-YM-FSJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SD6-jH-JTJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Photo" id="GVh-B5-jiY">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="wXs-82-8Uo">
+                            <connections>
+                                <action selector="cancelClicked:" destination="ktY-LQ-stT" id="qr2-Ig-kVM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="xnZ-jg-k20">
+                            <connections>
+                                <action selector="shareClicked:" destination="ktY-LQ-stT" id="cK9-HC-dq6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cameraView" destination="cdD-GM-bLe" id="kBk-vs-hRj"/>
+                        <outlet property="cancelButton" destination="wXs-82-8Uo" id="jar-3r-wli"/>
+                        <outlet property="changeButton" destination="I33-aB-5dy" id="YG8-5F-4nI"/>
+                        <outlet property="previewImage" destination="rFx-MS-Vvf" id="SNm-Jr-89f"/>
+                        <outlet property="previewView" destination="B57-Tw-n0I" id="TKF-0B-1hS"/>
+                        <outlet property="shareButton" destination="xnZ-jg-k20" id="mzx-vK-7rq"/>
+                        <outlet property="takePictureButton" destination="rrj-nc-RmM" id="B1d-1q-iMs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ppf-Z8-B5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4292" y="132.68365817091455"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2qi-FE-tnW">
             <objects>
@@ -916,6 +992,25 @@
             </objects>
             <point key="canvasLocation" x="4065" y="910"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Utx-2S-Aji">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1G2-nE-ENd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="65X-Zx-Cbl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ktY-LQ-stT" kind="relationship" relationship="rootViewController" id="Z42-aI-Lks"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3bm-bt-rVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3597.5999999999999" y="132.68365817091455"/>
+        </scene>
     </scenes>
     <resources>
         <image name="feed_tab" width="25" height="25"/>
@@ -924,6 +1019,7 @@
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="instaheart" width="55" height="52"/>
         <image name="instasave" width="55" height="52"/>
+        <image name="loop2" width="32" height="32"/>
         <image name="profile_tab" width="25" height="25"/>
         <image name="user-plus" width="32" height="32"/>
     </resources>

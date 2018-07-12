@@ -2,7 +2,7 @@
 
 **InstagramClone** is a photo sharing app using Parse as its backend.
 
-Time spent: **12** hours spent in total
+Time spent: **14** hours spent in total
 
 ## User Stories
 
@@ -31,7 +31,7 @@ The following **optional** features are implemented:
 - [X] Tapping on a post's username or profile photo goes to that user's profile page
 - [ ] User can comment on a post and see all comments for each post in the post details screen.
 - [X] User can like a post and see number of likes for each post in the post details screen.
-- [ ] Implement a custom camera view.
+- [X] Implement a custom camera view.
 
 The following **additional** features are implemented:
 
