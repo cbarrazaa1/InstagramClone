@@ -2,7 +2,7 @@
 
 **InstagramClone** is a photo sharing app using Parse as its backend.
 
-Time spent: **17** hours spent in total
+Time spent: **18** hours spent in total
 
 ## User Stories
 
@@ -36,6 +36,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [X] User can choose between camera and photo gallery for pictures.
+- [X] Users can follow and be followed through their profiles.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 

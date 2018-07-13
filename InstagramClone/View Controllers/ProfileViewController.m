@@ -11,6 +11,7 @@
 #import "Post.h"
 #import "PictureCell.h"
 #import "Helper.h"
+#import "Follower.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 // Outlet Definitions //
@@ -29,6 +30,7 @@
 // Instance Properties //
 @property (strong, nonatomic) User* user;
 @property (strong, nonatomic) NSMutableArray<Post*>* posts;
+@property (nonatomic) BOOL following;
 @end
 
 @implementation ProfileViewController
@@ -91,6 +93,19 @@
         self.editProfileButton.hidden = YES;
         self.messageButton.hidden = NO;
         self.followButton.hidden = NO;
+        self.followButton.hidden = NO;
+        
+        // update followbutton accordingly
+        if([[User currentUser].following containsObject:self.user.objectId])
+        {
+            self.following = YES;
+            [self.followButton setImage:[UIImage imageNamed:@"user-minus"] forState:UIControlStateNormal];
+        }
+        else
+        {
+            self.following = NO;
+            [self.followButton setImage:[UIImage imageNamed:@"user-plus"] forState:UIControlStateNormal];
+        }
     }
 }
 
@@ -121,6 +136,12 @@
          //[self.refreshControl endRefreshing];
      }
      ];
+    
+    // fetch user data as well
+    [self.user fetchFollowers];
+    [self.user fetchFollowees];
+    [[User currentUser] fetchFollowers];
+    [[User currentUser] fetchFollowees];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -160,5 +181,62 @@
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.posts.count;
 }
+
+- (IBAction)followClicked:(id)sender {
+    if(self.following)
+    {
+        self.following = NO;
+        self.user.followerCount--;
+        [[User currentUser].following removeObject:self.user.objectId];
+        [User currentUser].followingCount--;
+        PFQuery* query = [PFQuery queryWithClassName:@"Follower"];
+        query.limit = 1;
+        [query whereKey:@"followerID" equalTo:[User currentUser].objectId];
+        [query whereKey:@"followeeID" equalTo:self.user.objectId];
+        [query findObjectsInBackgroundWithBlock:
+               ^(NSArray * _Nullable objects, NSError * _Nullable error)
+               {
+                   Follower* follower = objects[0];
+                   [follower deleteInBackgroundWithBlock:
+                             ^(BOOL succeeded, NSError * _Nullable error)
+                             {
+                                 // revert local changes if error
+                                 if(!succeeded)
+                                 {
+                                     [[User currentUser].following addObject:self.user.objectId];
+                                     [User currentUser].followingCount++;
+                                     self.user.followerCount++;
+                                     self.following = YES;
+                                     [self updateUI];
+                                 }
+                             }
+                    ];
+               }
+         ];
+    }
+    else
+    {
+        self.following = YES;
+        self.user.followerCount++;
+        [[User currentUser].following addObject:self.user.objectId];
+        [User currentUser].followingCount++;
+        [Follower createFollower:[User currentUser].objectId followeeID:self.user.objectId
+                  completion:^(BOOL succeeded, NSError * _Nullable error)
+                  {
+                      if(!succeeded)
+                      {
+                          [[User currentUser].following removeObject:self.user.objectId];
+                          [User currentUser].followingCount--;
+                          self.user.followingCount--;
+                          self.following = NO;
+                          [self updateUI];
+                      }
+                  }
+         ];
+    }
+    
+    [self updateUI];
+}
+
 
 @end

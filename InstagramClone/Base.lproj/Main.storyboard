@@ -153,15 +153,13 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="os9-v6-iho">
                                         <rect key="frame" x="262" y="5" width="106" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Send Comment">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="Send Comment"/>
                                         <connections>
                                             <action selector="sendCommentClicked:" destination="y8F-sX-z3c" eventType="touchUpInside" id="gdO-ge-gyd"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.90239800347222221" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.95496961805555558" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -294,14 +292,14 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="cbarrazaa1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YQ-OQ-TOG">
-                                <rect key="frame" x="16" y="185" width="73" height="17"/>
+                                <rect key="frame" x="16" y="185" width="280" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is the user bio." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlK-Ic-z8a">
-                                <rect key="frame" x="16" y="205" width="117" height="16"/>
+                                <rect key="frame" x="16" y="205" width="344" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                 <nil key="textColor"/>
@@ -360,6 +358,9 @@
                                 <rect key="frame" x="327" y="6" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="user-plus"/>
+                                <connections>
+                                    <action selector="followClicked:" destination="Vhc-9H-2lf" eventType="touchUpInside" id="LmI-7R-JGN"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -1136,6 +1137,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="io9-Jh-zWX"/>
         <segue reference="q4N-kM-29I"/>
-        <segue reference="ueF-hv-ERR"/>
+        <segue reference="DXh-4C-N69"/>
     </inferredMetricsTieBreakers>
 </document>

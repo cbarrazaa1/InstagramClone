@@ -13,11 +13,16 @@
 @property (strong, nonatomic, nullable) PFFile* profilePicture;
 @property (strong, nonatomic, nonnull) NSString* displayName;
 @property (strong, nonatomic, nullable) NSString* bioDesc;
+@property (strong, nonatomic, nullable) NSMutableArray<NSString*>* following;
 @property (nonatomic) int followerCount;
 @property (nonatomic) int followingCount;
 
 // Constructors //
 - (nonnull instancetype)initWithPFUser:(nonnull PFUser*)user;
+
+// Instance Methods //
+- (void)fetchFollowers;
+- (void)fetchFollowees;
 
 // Static Methods //
 + (nonnull User*)defaultUserWithPFUser:(nonnull PFUser*)newUser;

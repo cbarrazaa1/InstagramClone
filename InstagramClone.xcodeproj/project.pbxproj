@@ -30,6 +30,7 @@
 		9EE0164D20F8013A0081BA68 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0164C20F8013A0081BA68 /* CommentCell.m */; };
 		9EE0165020F8015A0081BA68 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0164F20F8015A0081BA68 /* CommentsViewController.m */; };
 		9EE0165320F804710081BA68 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0165220F804710081BA68 /* Comment.m */; };
+		9EE0165620F82F120081BA68 /* Follower.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0165520F82F120081BA68 /* Follower.m */; };
 		C8FC6E02B58C5AEEE5DBDD81 /* libPods-InstagramCloneTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3E004136EF5D41B313791F /* libPods-InstagramCloneTests.a */; };
 		E06661F736956CCB49674375 /* libPods-InstagramClone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5CB752C48FF468D1A2DD7 /* libPods-InstagramClone.a */; };
 /* End PBXBuildFile section */
@@ -102,6 +103,8 @@
 		9EE0164F20F8015A0081BA68 /* CommentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		9EE0165120F804710081BA68 /* Comment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		9EE0165220F804710081BA68 /* Comment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		9EE0165420F82F120081BA68 /* Follower.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; path = Follower.h; sourceTree = "<group>"; };
+		9EE0165520F82F120081BA68 /* Follower.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Follower.m; sourceTree = "<group>"; };
 		A750B7985B9D7F50E83DDF98 /* Pods-InstagramCloneUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramCloneUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramCloneUITests/Pods-InstagramCloneUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AD3E004136EF5D41B313791F /* libPods-InstagramCloneTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramCloneTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7C5FB9CCBEC91D5D7F58604 /* Pods-InstagramCloneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramCloneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramCloneTests/Pods-InstagramCloneTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				9E6FE5F820F54AEC00175F60 /* User.m */,
 				9EE0165120F804710081BA68 /* Comment.h */,
 				9EE0165220F804710081BA68 /* Comment.m */,
+				9EE0165420F82F120081BA68 /* Follower.h */,
+				9EE0165520F82F120081BA68 /* Follower.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				9E6FE5ED20F4288D00175F60 /* NewPostViewController.m in Sources */,
 				9EE0165020F8015A0081BA68 /* CommentsViewController.m in Sources */,
 				9E3F4A1020F40C7400BD42D2 /* AppDelegate.m in Sources */,
+				9EE0165620F82F120081BA68 /* Follower.m in Sources */,
 				9E6FE5F320F47E9400175F60 /* PostCell.m in Sources */,
 				9E6FE5FF20F5783C00175F60 /* SettingsViewController.m in Sources */,
 				9E6FE5EA20F420DF00175F60 /* FeedViewController.m in Sources */,
