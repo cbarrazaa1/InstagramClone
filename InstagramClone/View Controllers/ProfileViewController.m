@@ -59,10 +59,13 @@
     CGFloat size = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (picturesPerLine - 1)) / picturesPerLine;
     layout.itemSize = CGSizeMake(size, size);
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self fetchPosts];
     [self updateUI];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

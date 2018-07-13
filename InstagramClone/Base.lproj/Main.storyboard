@@ -78,6 +78,113 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="Auq-en-ZDk">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fIO-fZ-5Dw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="y8F-sX-z3c" customClass="CommentsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gyl-Fq-vfo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l5L-Ap-4Vi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="80" id="Ld5-n0-UUL" customClass="CommentCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ld5-n0-UUL" id="Of9-un-vmJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="GT4-b6-vhQ">
+                                                    <rect key="frame" x="15" y="15" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="cbarrazaa1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyl-nf-xSe">
+                                                    <rect key="frame" x="55" y="15" width="148" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is a comment in a post." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLg-LA-lun">
+                                                    <rect key="frame" x="55" y="33" width="181" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="July 10, 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfQ-BR-7pN">
+                                                    <rect key="frame" x="55" y="52" width="85" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="commentLabel" destination="MLg-LA-lun" id="B8s-Uf-Ori"/>
+                                            <outlet property="dateLabel" destination="hfQ-BR-7pN" id="4LQ-kr-bnS"/>
+                                            <outlet property="pictureImage" destination="GT4-b6-vhQ" id="rW4-xb-9AS"/>
+                                            <outlet property="usernameLabel" destination="Vyl-nf-xSe" id="Nps-DN-v0u"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Jb-mA-heU">
+                                <rect key="frame" x="0.0" y="574" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ck5-1S-EWo">
+                                        <rect key="frame" x="8" y="6" width="247" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="editingBegin:" destination="y8F-sX-z3c" eventType="editingDidBegin" id="zMm-Dl-Zu9"/>
+                                            <action selector="editingEnd:" destination="y8F-sX-z3c" eventType="editingDidEnd" id="8aX-wl-m6g"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="os9-v6-iho">
+                                        <rect key="frame" x="262" y="5" width="106" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Send Comment">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendCommentClicked:" destination="y8F-sX-z3c" eventType="touchUpInside" id="gdO-ge-gyd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.90239800347222221" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="Xpx-pp-KUI"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="doq-5l-SCe" appends="YES" id="oDN-U3-x5l"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="commentField" destination="ck5-1S-EWo" id="U33-41-AG9"/>
+                        <outlet property="commentView" destination="9Jb-mA-heU" id="tj9-FP-apT"/>
+                        <outlet property="tableView" destination="l5L-Ap-4Vi" id="YVW-eH-MUh"/>
+                    </connections>
+                </viewController>
+                <tapGestureRecognizer id="doq-5l-SCe">
+                    <connections>
+                        <action selector="onTap:" destination="y8F-sX-z3c" id="974-Qk-w26"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3357.5999999999999" y="133.5832083958021"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="sFl-e2-WOf">
             <objects>
@@ -319,7 +426,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Cesar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Se-Im-Ojs">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Se-Im-Ojs">
                                                 <rect key="frame" x="122" y="12" width="239" height="17"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
@@ -358,7 +465,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNd-nG-QT0">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNd-nG-QT0">
                                                 <rect key="frame" x="122" y="8" width="240" height="21"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
@@ -496,6 +603,7 @@
                                                     <state key="normal" title="I" image="insta reply"/>
                                                     <connections>
                                                         <action selector="replyClicked:" destination="XQS-1h-8pm" eventType="touchUpInside" id="m9H-my-cku"/>
+                                                        <segue destination="y8F-sX-z3c" kind="show" identifier="commentsSegue" id="DXh-4C-N69"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJJ-5a-Df8">
@@ -590,7 +698,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0FI-6S-xhr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2528.8000000000002" y="-577.06146926536735"/>
+            <point key="canvasLocation" x="2534" y="133"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Ubg-Oe-P6s">
@@ -688,7 +796,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2528.8000000000002" y="132.68365817091455"/>
+            <point key="canvasLocation" x="2534" y="-564"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="j0e-sL-Jgp">
@@ -751,6 +859,7 @@
                                                 <state key="normal" title="I" image="insta reply"/>
                                                 <connections>
                                                     <action selector="replyClicked:" destination="CBb-2G-Vmp" eventType="touchUpInside" id="LBL-T0-xVs"/>
+                                                    <segue destination="y8F-sX-z3c" kind="show" identifier="commentsSegue" id="ueF-hv-ERR"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIU-rz-2fo">
@@ -859,7 +968,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ku-Sx-5bh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="-577"/>
+            <point key="canvasLocation" x="1772" y="133"/>
         </scene>
         <!--Profile-->
         <scene sceneID="dIC-Mh-LMp">
@@ -898,7 +1007,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRf-5d-NKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="134"/>
+            <point key="canvasLocation" x="1772" y="-563"/>
         </scene>
         <!--Photo-->
         <scene sceneID="i7Y-FA-Ez4">
@@ -973,7 +1082,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ppf-Z8-B5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4292" y="132.68365817091455"/>
+            <point key="canvasLocation" x="4350" y="-564"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2qi-FE-tnW">
@@ -1010,7 +1119,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bm-bt-rVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3597.5999999999999" y="132.68365817091455"/>
+            <point key="canvasLocation" x="3561" y="-564"/>
         </scene>
     </scenes>
     <resources>
@@ -1027,5 +1136,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="io9-Jh-zWX"/>
         <segue reference="q4N-kM-29I"/>
+        <segue reference="ueF-hv-ERR"/>
     </inferredMetricsTieBreakers>
 </document>

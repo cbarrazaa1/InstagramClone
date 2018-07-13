@@ -38,8 +38,8 @@
 
 - (void)updateUI {
     [Helper setImageFromPFFile:self.user.profilePicture forImageView:self.profilePicture];
-    self.nameField.text = self.user.displayName;
-    self.bioField.text = self.user.bioDesc;
+    self.nameField.placeholder = self.user.displayName;
+    self.bioField.placeholder = self.user.bioDesc;
 }
 
 - (void)didReceiveMemoryWarning {

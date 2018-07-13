@@ -7,6 +7,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "CommentsViewController.h"
 #import "User.h"
 #import "Helper.h"
 
@@ -78,15 +79,13 @@
     _post = post;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"commentsSegue"])
+    {
+        CommentsViewController* viewController = (CommentsViewController*)[segue destinationViewController];
+        [viewController setPostID:self.post.objectId];
+    }
 }
-*/
 
 - (IBAction)likeClicked:(id)sender {
     // animate

@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 #import "FeedViewController.h"
 #import "ProfileViewController.h"
+#import "CommentsViewController.h"
 #import "AppDelegate.h"
 #import "Post.h"
 #import "PostCell.h"
@@ -54,6 +55,12 @@
         ProfileViewController* viewController = (ProfileViewController*)[segue destinationViewController];
         PostCell* cell = (PostCell*)[[sender superview] superview];
         [viewController setUser:[[User alloc] initWithPFUser:cell.post.user]];
+    }
+    else if([segue.identifier isEqualToString:@"commentsSegue"])
+    {
+        CommentsViewController* viewController = (CommentsViewController*)[segue destinationViewController];
+        PostCell* cell = (PostCell*)[[sender superview] superview];
+        [viewController setPostID:cell.post.objectId];
     }
 }
 
