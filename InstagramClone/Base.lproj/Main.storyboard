@@ -607,17 +607,6 @@
                                                         <segue destination="y8F-sX-z3c" kind="show" identifier="commentsSegue" id="DXh-4C-N69"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJJ-5a-Df8">
-                                                    <rect key="frame" x="335" y="292" width="32" height="32"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="IGd-8o-IfI"/>
-                                                        <constraint firstAttribute="width" constant="32" id="y3b-ts-cUD"/>
-                                                    </constraints>
-                                                    <state key="normal" title="I" image="instasave"/>
-                                                    <connections>
-                                                        <action selector="saveClicked:" destination="XQS-1h-8pm" eventType="touchUpInside" id="1bx-UP-oPZ"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c8-Yr-5xu">
                                                     <rect key="frame" x="10" y="9" width="34" height="34"/>
                                                     <constraints>
@@ -651,7 +640,6 @@
                                                 <constraint firstItem="x4J-Hh-10c" firstAttribute="top" secondItem="NxM-bi-22E" secondAttribute="bottom" constant="4" id="84J-7H-FQM"/>
                                                 <constraint firstItem="1c8-Yr-5xu" firstAttribute="leading" secondItem="UTN-Sn-VeS" secondAttribute="leading" constant="10" id="CXJ-Hc-JrM"/>
                                                 <constraint firstItem="NxM-bi-22E" firstAttribute="top" secondItem="Kzy-4b-0M8" secondAttribute="bottom" constant="8" id="G8A-U1-GAA"/>
-                                                <constraint firstItem="sJJ-5a-Df8" firstAttribute="top" secondItem="5bN-VW-Kvq" secondAttribute="bottom" constant="4" id="GqQ-8S-d9h"/>
                                                 <constraint firstItem="5bN-VW-Kvq" firstAttribute="top" secondItem="zO8-IF-6gq" secondAttribute="bottom" constant="17" id="J51-fK-Hjn"/>
                                                 <constraint firstItem="5bN-VW-Kvq" firstAttribute="leading" secondItem="UTN-Sn-VeS" secondAttribute="leading" id="LW5-xU-Vpn"/>
                                                 <constraint firstItem="x4J-Hh-10c" firstAttribute="leading" secondItem="UTN-Sn-VeS" secondAttribute="leading" constant="15" id="RY8-9Y-Vyi"/>
@@ -659,7 +647,6 @@
                                                 <constraint firstItem="Kzy-4b-0M8" firstAttribute="top" secondItem="5bN-VW-Kvq" secondAttribute="bottom" constant="8" id="aIe-Je-VK1"/>
                                                 <constraint firstItem="YKB-2e-gXB" firstAttribute="top" secondItem="5bN-VW-Kvq" secondAttribute="bottom" constant="8" id="bRG-Rd-2cD"/>
                                                 <constraint firstItem="Kzy-4b-0M8" firstAttribute="leading" secondItem="UTN-Sn-VeS" secondAttribute="leading" constant="15" id="brG-2Q-RMZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="sJJ-5a-Df8" secondAttribute="trailing" constant="8" id="buy-N8-GwB"/>
                                                 <constraint firstItem="1c8-Yr-5xu" firstAttribute="top" secondItem="UTN-Sn-VeS" secondAttribute="top" constant="9" id="bxe-gg-EK4"/>
                                                 <constraint firstItem="ip3-VO-gHq" firstAttribute="top" secondItem="x4J-Hh-10c" secondAttribute="bottom" constant="4" id="gCW-3p-xuG"/>
                                                 <constraint firstItem="NxM-bi-22E" firstAttribute="leading" secondItem="UTN-Sn-VeS" secondAttribute="leading" constant="15" id="hBd-pc-bJ6"/>
@@ -675,7 +662,6 @@
                                             <outlet property="pictureImage" destination="5bN-VW-Kvq" id="nW6-Y6-fma"/>
                                             <outlet property="profileButton" destination="1c8-Yr-5xu" id="bL0-6A-z3v"/>
                                             <outlet property="replyButton" destination="YKB-2e-gXB" id="Fgd-DA-DZA"/>
-                                            <outlet property="saveButton" destination="sJJ-5a-Df8" id="eZW-m8-HPG"/>
                                             <outlet property="topUsernameLabel" destination="zO8-IF-6gq" id="Qup-fA-BCy"/>
                                         </connections>
                                     </tableViewCell>
@@ -863,17 +849,6 @@
                                                     <segue destination="y8F-sX-z3c" kind="show" identifier="commentsSegue" id="ueF-hv-ERR"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIU-rz-2fo">
-                                                <rect key="frame" x="331" y="450" width="32" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="32" id="D25-Co-Rv5"/>
-                                                    <constraint firstAttribute="height" constant="32" id="kOP-yV-IH4"/>
-                                                </constraints>
-                                                <state key="normal" title="I" image="instasave"/>
-                                                <connections>
-                                                    <action selector="saveClicked:" destination="CBb-2G-Vmp" eventType="touchUpInside" id="Wk7-cp-dMo"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="July 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zw7-t7-MKC">
                                                 <rect key="frame" x="11" y="529" width="39" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
@@ -890,11 +865,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Dpc-TA-wL1" firstAttribute="top" secondItem="E3J-9Z-xSi" secondAttribute="bottom" constant="12" id="0wt-g0-GT2"/>
-                                            <constraint firstAttribute="trailing" secondItem="PIU-rz-2fo" secondAttribute="trailing" constant="12" id="2xc-cU-hcl"/>
                                             <constraint firstItem="X2e-0c-QpK" firstAttribute="leading" secondItem="9zG-ev-gje" secondAttribute="leading" constant="11" id="Dii-mm-1te"/>
                                             <constraint firstAttribute="trailing" secondItem="RWa-ha-V7j" secondAttribute="trailing" constant="8" id="MxO-pq-rX8"/>
                                             <constraint firstItem="lqY-YZ-rZb" firstAttribute="leading" secondItem="9zG-ev-gje" secondAttribute="leading" constant="10" id="OSE-MA-pmS"/>
-                                            <constraint firstItem="PIU-rz-2fo" firstAttribute="top" secondItem="E3J-9Z-xSi" secondAttribute="bottom" constant="8" id="P73-bD-ibK"/>
                                             <constraint firstItem="WVr-LQ-OR5" firstAttribute="top" secondItem="E3J-9Z-xSi" secondAttribute="bottom" constant="12" id="VZG-8U-NJy"/>
                                             <constraint firstItem="E3J-9Z-xSi" firstAttribute="top" secondItem="oGX-cw-Mnk" secondAttribute="bottom" constant="16" id="aAa-ex-bGS"/>
                                             <constraint firstItem="Dpc-TA-wL1" firstAttribute="leading" secondItem="9zG-ev-gje" secondAttribute="leading" constant="11" id="bAV-bo-kbn"/>
@@ -940,7 +913,6 @@
                         <outlet property="pictureImage" destination="E3J-9Z-xSi" id="knk-4i-8Vx"/>
                         <outlet property="profilePicture" destination="lqY-YZ-rZb" id="HFT-5v-j63"/>
                         <outlet property="replyButton" destination="WVr-LQ-OR5" id="Bka-18-Oaq"/>
-                        <outlet property="saveButton" destination="PIU-rz-2fo" id="UeJ-2g-b35"/>
                         <outlet property="scrollView" destination="jZb-uU-JLk" id="gq0-AJ-eKe"/>
                         <outlet property="usernameLabel" destination="oGX-cw-Mnk" id="3WB-wa-2Xt"/>
                     </connections>
@@ -1129,7 +1101,6 @@
         <image name="insta reply" width="55" height="52"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="instaheart" width="55" height="52"/>
-        <image name="instasave" width="55" height="52"/>
         <image name="loop2" width="32" height="32"/>
         <image name="profile_tab" width="25" height="25"/>
         <image name="user-plus" width="32" height="32"/>
@@ -1137,6 +1108,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="io9-Jh-zWX"/>
         <segue reference="q4N-kM-29I"/>
-        <segue reference="DXh-4C-N69"/>
+        <segue reference="ueF-hv-ERR"/>
     </inferredMetricsTieBreakers>
 </document>
