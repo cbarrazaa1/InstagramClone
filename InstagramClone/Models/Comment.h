@@ -16,5 +16,5 @@
 @property (strong, nonatomic, nullable) NSString* text;
 
 // Static Methods //
-+ (Comment*)createCommentWithPostID:(nonnull NSString*)postID userID:(nonnull NSString*)userID text:(nullable NSString*)text completion:(nullable PFBooleanResultBlock)completion;
++ (void)createCommentWithPostID:(nonnull NSString*)postID userID:(nonnull NSString*)userID text:(nullable NSString*)text completion:(nullable PFBooleanResultBlock)completion;
 @end

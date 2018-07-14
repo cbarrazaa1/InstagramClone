@@ -262,6 +262,7 @@
                                         </state>
                                         <connections>
                                             <action selector="editProfileClicked:" destination="Vhc-9H-2lf" eventType="touchUpInside" id="O09-M0-pl7"/>
+                                            <segue destination="vQE-sj-ZPd" kind="show" identifier="messagesSegue" id="loI-br-Uax"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -784,6 +785,156 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2534" y="-564"/>
+        </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="dcu-nG-IZ0">
+            <objects>
+                <viewController id="vQE-sj-ZPd" customClass="MessagesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0bU-Y3-mYP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dGX-RY-UkX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="509"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageRecipientCell" rowHeight="51" id="2HN-pT-7gF" customClass="MessageRecipientCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2HN-pT-7gF" id="mWf-gb-SLa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7A-wa-Cj0">
+                                                    <rect key="frame" x="48" y="6" width="312" height="38"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a chat message from recipient." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8b-tD-TB3">
+                                                            <rect key="frame" x="8" y="10" width="256" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="x8b-tD-TB3" secondAttribute="bottom" constant="10" id="DQt-l0-U1R"/>
+                                                        <constraint firstAttribute="trailing" secondItem="x8b-tD-TB3" secondAttribute="trailing" constant="48" id="m7H-Oe-iIs"/>
+                                                        <constraint firstItem="x8b-tD-TB3" firstAttribute="top" secondItem="D7A-wa-Cj0" secondAttribute="top" constant="10" id="pj9-9u-pFO"/>
+                                                        <constraint firstItem="x8b-tD-TB3" firstAttribute="leading" secondItem="D7A-wa-Cj0" secondAttribute="leading" constant="8" id="vvU-W8-VgE"/>
+                                                    </constraints>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5uA-si-G6D">
+                                                    <rect key="frame" x="6" y="8" width="34" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="F2T-b9-3F3"/>
+                                                        <constraint firstAttribute="width" constant="34" id="Ki0-Xb-UWZ"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="D7A-wa-Cj0" secondAttribute="trailing" constant="15" id="FAA-Js-rHG"/>
+                                                <constraint firstItem="5uA-si-G6D" firstAttribute="top" secondItem="mWf-gb-SLa" secondAttribute="top" constant="8" id="Fk4-Og-oBv"/>
+                                                <constraint firstItem="5uA-si-G6D" firstAttribute="leading" secondItem="mWf-gb-SLa" secondAttribute="leading" constant="6" id="V9b-CL-OrB"/>
+                                                <constraint firstAttribute="bottom" secondItem="D7A-wa-Cj0" secondAttribute="bottom" constant="6.5" id="WAy-dH-DEU"/>
+                                                <constraint firstItem="D7A-wa-Cj0" firstAttribute="leading" secondItem="5uA-si-G6D" secondAttribute="trailing" constant="8" id="i0m-hb-aFq"/>
+                                                <constraint firstItem="D7A-wa-Cj0" firstAttribute="top" secondItem="mWf-gb-SLa" secondAttribute="top" constant="6" id="lJa-ui-IWT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="x8b-tD-TB3" id="Pxa-BM-jOe"/>
+                                            <outlet property="messageview" destination="D7A-wa-Cj0" id="aGl-VB-qzw"/>
+                                            <outlet property="profileImage" destination="5uA-si-G6D" id="hPi-Ph-mmU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageSenderCell" rowHeight="51" id="Afb-zR-I8H" customClass="MessageSenderCell">
+                                        <rect key="frame" x="0.0" y="79" width="375" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Afb-zR-I8H" id="iam-zP-f9G">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYH-C2-fwd">
+                                                    <rect key="frame" x="15" y="6" width="345" height="38"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a chat message from recipient." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHX-YV-Od2">
+                                                            <rect key="frame" x="85" y="10" width="256" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.932373046875" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="GHX-YV-Od2" secondAttribute="bottom" constant="10" id="AZx-D0-4zH"/>
+                                                        <constraint firstItem="GHX-YV-Od2" firstAttribute="top" secondItem="gYH-C2-fwd" secondAttribute="top" constant="10" id="Iot-lP-lgb"/>
+                                                        <constraint firstAttribute="trailing" secondItem="GHX-YV-Od2" secondAttribute="trailing" constant="4" id="qWi-C2-bRd"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="gYH-C2-fwd" secondAttribute="trailing" constant="15" id="DLt-wQ-LLt"/>
+                                                <constraint firstItem="gYH-C2-fwd" firstAttribute="leading" secondItem="iam-zP-f9G" secondAttribute="leading" constant="15" id="P8r-KA-NtG"/>
+                                                <constraint firstItem="gYH-C2-fwd" firstAttribute="top" secondItem="iam-zP-f9G" secondAttribute="top" constant="6" id="eio-XF-qh1"/>
+                                                <constraint firstAttribute="bottom" secondItem="gYH-C2-fwd" secondAttribute="bottom" constant="6.5" id="p7U-Ud-ZeD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="GHX-YV-Od2" id="PqN-n6-vWp"/>
+                                            <outlet property="messageView" destination="gYH-C2-fwd" id="MLd-jp-wS8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spl-iU-mC4">
+                                <rect key="frame" x="0.0" y="574" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Muy-nn-wWs">
+                                        <rect key="frame" x="8" y="6" width="247" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="editingBegin:" destination="vQE-sj-ZPd" eventType="editingDidBegin" id="C3f-11-gZm"/>
+                                            <action selector="editingEnd:" destination="vQE-sj-ZPd" eventType="editingDidEnd" id="obE-aW-Qe1"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiK-O0-ARO">
+                                        <rect key="frame" x="265" y="5" width="101" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Send Message"/>
+                                        <connections>
+                                            <action selector="sendCommentClicked:" destination="y8F-sX-z3c" eventType="touchUpInside" id="u3W-2Z-P24"/>
+                                            <action selector="sendMessageClicked:" destination="vQE-sj-ZPd" eventType="touchUpInside" id="x07-eH-rv7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.95496961810000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="I9a-ES-hof"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="QJz-fs-G7w" appends="YES" id="DpU-T7-5kS"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="messageField" destination="Muy-nn-wWs" id="faJ-2y-8xR"/>
+                        <outlet property="messageView" destination="spl-iU-mC4" id="LEk-3d-h1k"/>
+                        <outlet property="tableView" destination="dGX-RY-UkX" id="Pda-Uw-Tf8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDH-Fr-yhW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="QJz-fs-G7w">
+                    <connections>
+                        <action selector="onTap:" destination="vQE-sj-ZPd" id="IYN-ih-S9n"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2576.8000000000002" y="1625.0374812593705"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="j0e-sL-Jgp">

@@ -12,6 +12,7 @@
 #import "PictureCell.h"
 #import "Helper.h"
 #import "Follower.h"
+#import "MessagesViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 // Outlet Definitions //
@@ -151,6 +152,14 @@
         PictureCell* cell = (PictureCell*)sender;
         NSIndexPath* indexPath = [self.collectionView indexPathForCell:cell];
         [viewController setPost:self.posts[indexPath.item]];
+    }
+    else if([segue.identifier isEqualToString:@"messagesSegue"])
+    {
+        MessagesViewController* viewController = (MessagesViewController*)[segue destinationViewController];
+        NSString* senderID = [User currentUser].objectId;
+        NSString* recipientID = self.user.objectId;
+        NSString* recipientImage = self.profileImage.image;
+        [viewController setSenderID:[User currentUser].objectId recipientID:self.user.objectId recipientImage:self.profileImage.image];
     }
 }
 

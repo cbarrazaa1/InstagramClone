@@ -15,7 +15,7 @@
     return @"Comment";
 }
 
-+ (Comment*)createCommentWithPostID:(NSString*)postID userID:(NSString*)userID text:(NSString*)text completion:(nullable PFBooleanResultBlock)completion {
++ (void)createCommentWithPostID:(NSString*)postID userID:(NSString*)userID text:(NSString*)text completion:(nullable PFBooleanResultBlock)completion {
     Comment* newComment = [Comment new];
     newComment.postID = postID;
     newComment.userID = userID;
@@ -23,6 +23,5 @@
     
     // save in db
     [newComment saveInBackgroundWithBlock:completion];
-    return newComment;
 }
 @end

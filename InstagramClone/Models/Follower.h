@@ -15,5 +15,5 @@
 @property (strong, nonatomic, nonnull) NSString* followeeID;
 
 // Static Methods //
-+ (void)createFollower:(NSString*)followerID followeeID:(NSString*)followeeID completion:(nullable PFBooleanResultBlock)completion;
++ (void)createFollower:(nonnull NSString*)followerID followeeID:(nonnull NSString*)followeeID completion:(nullable PFBooleanResultBlock)completion;
 @end

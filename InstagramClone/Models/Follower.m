@@ -15,7 +15,7 @@
     return @"Follower";
 }
 
-+ (void)createFollower:(NSString*)followerID followeeID:(NSString*)followeeID completion:(nullable PFBooleanResultBlock)completion {
++ (void)createFollower:(nonnull NSString*)followerID followeeID:(nonnull NSString*)followeeID completion:(nullable PFBooleanResultBlock)completion {
     Follower* newFollower = [Follower new];
     newFollower.followerID = followerID;
     newFollower.followeeID = followeeID;

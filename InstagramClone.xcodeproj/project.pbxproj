@@ -31,6 +31,10 @@
 		9EE0165020F8015A0081BA68 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0164F20F8015A0081BA68 /* CommentsViewController.m */; };
 		9EE0165320F804710081BA68 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0165220F804710081BA68 /* Comment.m */; };
 		9EE0165620F82F120081BA68 /* Follower.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0165520F82F120081BA68 /* Follower.m */; };
+		9EE0165920F95F890081BA68 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0165820F95F890081BA68 /* Message.m */; };
+		9EE0165C20F966320081BA68 /* MessageSenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0165B20F966320081BA68 /* MessageSenderCell.m */; };
+		9EE0165F20F9663F0081BA68 /* MessageRecipientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0165E20F9663F0081BA68 /* MessageRecipientCell.m */; };
+		9EE0166220F9666E0081BA68 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0166120F9666E0081BA68 /* MessagesViewController.m */; };
 		C8FC6E02B58C5AEEE5DBDD81 /* libPods-InstagramCloneTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3E004136EF5D41B313791F /* libPods-InstagramCloneTests.a */; };
 		E06661F736956CCB49674375 /* libPods-InstagramClone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5CB752C48FF468D1A2DD7 /* libPods-InstagramClone.a */; };
 /* End PBXBuildFile section */
@@ -105,6 +109,14 @@
 		9EE0165220F804710081BA68 /* Comment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		9EE0165420F82F120081BA68 /* Follower.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; path = Follower.h; sourceTree = "<group>"; };
 		9EE0165520F82F120081BA68 /* Follower.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Follower.m; sourceTree = "<group>"; };
+		9EE0165720F95F890081BA68 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		9EE0165820F95F890081BA68 /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		9EE0165A20F966320081BA68 /* MessageSenderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSenderCell.h; sourceTree = "<group>"; };
+		9EE0165B20F966320081BA68 /* MessageSenderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSenderCell.m; sourceTree = "<group>"; };
+		9EE0165D20F9663F0081BA68 /* MessageRecipientCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageRecipientCell.h; sourceTree = "<group>"; };
+		9EE0165E20F9663F0081BA68 /* MessageRecipientCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageRecipientCell.m; sourceTree = "<group>"; };
+		9EE0166020F9666E0081BA68 /* MessagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		9EE0166120F9666E0081BA68 /* MessagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
 		A750B7985B9D7F50E83DDF98 /* Pods-InstagramCloneUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramCloneUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramCloneUITests/Pods-InstagramCloneUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AD3E004136EF5D41B313791F /* libPods-InstagramCloneTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramCloneTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7C5FB9CCBEC91D5D7F58604 /* Pods-InstagramCloneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramCloneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramCloneTests/Pods-InstagramCloneTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +241,8 @@
 				9EE0164920F7B29B0081BA68 /* CameraViewController.m */,
 				9EE0164E20F8015A0081BA68 /* CommentsViewController.h */,
 				9EE0164F20F8015A0081BA68 /* CommentsViewController.m */,
+				9EE0166020F9666E0081BA68 /* MessagesViewController.h */,
+				9EE0166120F9666E0081BA68 /* MessagesViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -242,6 +256,10 @@
 				9E6FE5FB20F5647E00175F60 /* PictureCell.m */,
 				9EE0164B20F8013A0081BA68 /* CommentCell.h */,
 				9EE0164C20F8013A0081BA68 /* CommentCell.m */,
+				9EE0165A20F966320081BA68 /* MessageSenderCell.h */,
+				9EE0165B20F966320081BA68 /* MessageSenderCell.m */,
+				9EE0165D20F9663F0081BA68 /* MessageRecipientCell.h */,
+				9EE0165E20F9663F0081BA68 /* MessageRecipientCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +275,8 @@
 				9EE0165220F804710081BA68 /* Comment.m */,
 				9EE0165420F82F120081BA68 /* Follower.h */,
 				9EE0165520F82F120081BA68 /* Follower.m */,
+				9EE0165720F95F890081BA68 /* Message.h */,
+				9EE0165820F95F890081BA68 /* Message.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -486,9 +506,12 @@
 				9E6FE60220F58C9000175F60 /* DetailsViewController.m in Sources */,
 				9EE0165320F804710081BA68 /* Comment.m in Sources */,
 				9E6FE5F620F549EE00175F60 /* ProfileViewController.m in Sources */,
+				9EE0166220F9666E0081BA68 /* MessagesViewController.m in Sources */,
 				9EE0164A20F7B29B0081BA68 /* CameraViewController.m in Sources */,
 				9E6FE5FC20F5647E00175F60 /* PictureCell.m in Sources */,
+				9EE0165C20F966320081BA68 /* MessageSenderCell.m in Sources */,
 				9E6FE5ED20F4288D00175F60 /* NewPostViewController.m in Sources */,
+				9EE0165920F95F890081BA68 /* Message.m in Sources */,
 				9EE0165020F8015A0081BA68 /* CommentsViewController.m in Sources */,
 				9E3F4A1020F40C7400BD42D2 /* AppDelegate.m in Sources */,
 				9EE0165620F82F120081BA68 /* Follower.m in Sources */,
@@ -497,6 +520,7 @@
 				9E6FE5EA20F420DF00175F60 /* FeedViewController.m in Sources */,
 				9E6FE5E720F4177D00175F60 /* LoginViewController.m in Sources */,
 				9EE0164D20F8013A0081BA68 /* CommentCell.m in Sources */,
+				9EE0165F20F9663F0081BA68 /* MessageRecipientCell.m in Sources */,
 				9EC1B23520F5D558005CD35F /* Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
