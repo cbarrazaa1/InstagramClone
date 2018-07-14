@@ -40,14 +40,14 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Understanding PFUser at first was hard.
+2. Autolayout like always.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![alt text](https://github.com/cbarrazaa1/InstagramClone/blob/master/instagram.gif "Logo Title Text 1")
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
